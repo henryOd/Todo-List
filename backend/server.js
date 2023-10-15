@@ -4,19 +4,25 @@ const express = require('express')
 const mongoose = require('mongoose') 
 const cors = require('cors') 
 const TodoModel = require("./models/todolist") 
-const uri="mongodb+srv://henrycoinbase:<lesson2>@cluster0.uwwuwqb.mongodb.net/?retryWrites=true&w=majority"
+const uri="mongodb+srv://henrycoinbase:OG0lByE8ynVcyhHH@cluster0.uwwuwqb.mongodb.net/?retryWrites=true&w=majority"
 
 var app = express(); 
 app.use(cors()); 
 app.use(express.json()); 
 
 // Connect to your MongoDB database (replace with your database URL) 
-mongoose.connect(uri); 
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }); 
 
+const db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+  console.log('Connected to MongoDB');
+});
 // Check for database connection errors 
-mongoose.connection.on("error", (error) => { 
-	console.error("MongoDB connection error:", error); 
-}); 
+// mongoose.connection.on("error", (error) => { 
+// 	console.error("MongoDB connection error:", error); 
+// }); 
 
 // Get saved tasks from the database 
 app.get("/getTodoList", (req, res) => { 
