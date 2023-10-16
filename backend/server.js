@@ -24,6 +24,11 @@ db.once('open', () => {
 // 	console.error("MongoDB connection error:", error); 
 // }); 
 
+// Allow specific origin(s)
+app.use(cors({
+	origin: 'https://vercel.com/henrys-projects-824fc391/todo-list-wq7i/5nJGuBe3LMcGpGcnCsgTTR48AeMH'
+  }));
+
 // Get saved tasks from the database 
 app.get("/getTodoList", (req, res) => { 
 	TodoModel.find({}) 
@@ -63,6 +68,6 @@ app.delete("/deleteTodoList/:id", (req, res) => {
 		.catch((err) => res.json(err)); 
 }); 
 
-app.listen(3001, () => { 
-	console.log('Server running on 3001'); 
+app.listen(5000, () => { 
+	console.log('Server running on 5000'); 
 }); 
