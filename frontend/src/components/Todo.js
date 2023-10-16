@@ -14,7 +14,7 @@ function Todo() {
 
 	// Fetch tasks from database 
 	useEffect(() => { 
-		axios.get('https://vercel.com/henrys-projects-824fc391/todo-list/31NPp546aEGLxw7j1tp52NB5GLFh/getTodoList') 
+		axios.get('https://todo-list-wq7i-ek6vw87i8-henrys-projects-824fc391.vercel.app/getTodoList') 
 			.then(result => { 
 				setTodoList(result.data) 
 			}) 
@@ -46,7 +46,7 @@ function Todo() {
 			return; 
 		} 
 
-		axios.post('https://vercel.com/henrys-projects-824fc391/todo-list/31NPp546aEGLxw7j1tp52NB5GLFh/addTodoList', { task: newTask, status: newStatus, deadline: newDeadline }) 
+		axios.post('https://todo-list-wq7i-ek6vw87i8-henrys-projects-824fc391.vercel.app/addTodoList', { task: newTask, status: newStatus, deadline: newDeadline }) 
 			.then(res => { 
 				console.log(res); 
 				window.location.reload(); 
@@ -69,7 +69,7 @@ function Todo() {
 		} 
 
 		// Updating edited data to the database through updateById API 
-		axios.post('https://vercel.com/henrys-projects-824fc391/todo-list/31NPp546aEGLxw7j1tp52NB5GLFh/updateTodoList/' + id, editedData) 
+		axios.post('https://todo-list-wq7i-ek6vw87i8-henrys-projects-824fc391.vercel.app' + id, editedData) 
 			.then(result => { 
 				console.log(result); 
 				setEditableId(null); 
@@ -84,7 +84,7 @@ function Todo() {
 
 	// Delete task from database 
 	const deleteTask = (id) => { 
-		axios.delete('https://vercel.com/henrys-projects-824fc391/todo-list/31NPp546aEGLxw7j1tp52NB5GLFh/deleteTodoList/' + id) 
+		axios.delete('https://todo-list-wq7i-ek6vw87i8-henrys-projects-824fc391.vercel.app' + id) 
 			.then(result => { 
 				console.log(result); 
 				window.location.reload(); 
