@@ -8,6 +8,9 @@ const uri="mongodb+srv://henrycoinbase:OG0lByE8ynVcyhHH@cluster0.uwwuwqb.mongodb
 
 var app = express(); 
 app.use(cors()); 
+app.use(cors({
+	origin: 'https://todo-list-iw62.vercel.app/addTodoList',
+  }));
 app.use(express.json()); 
 
 // Connect to your MongoDB database (replace with your database URL) 
@@ -64,9 +67,7 @@ app.delete("/deleteTodoList/:id", (req, res) => {
 		.catch((err) => res.json(err)); 
 }); 
 
-app.use(cors({
-	origin: 'https://todo-list-wq7i.vercel.app',
-  }));
+
   
   // Your other middleware and routes
   
