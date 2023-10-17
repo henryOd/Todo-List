@@ -14,7 +14,7 @@ function Todo() {
 
 	// Fetch tasks from database 
 	useEffect(() => { 
-		axios.get('https://todo-list-wq7i-ek6vw87i8-henrys-projects-824fc391.vercel.app/getTodoList') 
+		axios.get('http://127.0.0.1:5000/getTodoList') 
 			.then(result => { 
 				setTodoList(result.data) 
 			}) 
@@ -46,7 +46,7 @@ function Todo() {
 			return; 
 		} 
 
-		axios.post('https://todo-list-wq7i-ek6vw87i8-henrys-projects-824fc391.vercel.app/addTodoList', { task: newTask, status: newStatus, deadline: newDeadline }) 
+		axios.post('http://127.0.0.1:5000/addTodoList', { task: newTask, status: newStatus, deadline: newDeadline }) 
 			.then(res => { 
 				console.log(res); 
 				window.location.reload(); 
@@ -69,7 +69,7 @@ function Todo() {
 		} 
 
 		// Updating edited data to the database through updateById API 
-		axios.post('https://todo-list-wq7i-ek6vw87i8-henrys-projects-824fc391.vercel.app' + id, editedData) 
+		axios.post('http://127.0.0.1:5000/updateTodoList/' + id, editedData) 
 			.then(result => { 
 				console.log(result); 
 				setEditableId(null); 
@@ -84,7 +84,7 @@ function Todo() {
 
 	// Delete task from database 
 	const deleteTask = (id) => { 
-		axios.delete('https://todo-list-wq7i-ek6vw87i8-henrys-projects-824fc391.vercel.app' + id) 
+		axios.delete('http://127.0.0.1:5000/deleteTodoList/' + id) 
 			.then(result => { 
 				console.log(result); 
 				window.location.reload(); 
