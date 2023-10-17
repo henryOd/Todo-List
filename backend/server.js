@@ -65,7 +65,7 @@ app.delete("/deleteTodoList/:id", (req, res) => {
 }); 
 
 app.use(cors({
-	origin: 'https://todo-list-iw62.vercel.app',
+	origin: 'https://todo-list-wq7i.vercel.app',
   }));
   
   // Your other middleware and routes
