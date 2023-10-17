@@ -24,10 +24,6 @@ db.once('open', () => {
 // 	console.error("MongoDB connection error:", error); 
 // }); 
 
-// Allow specific origin(s)
-app.use(cors({
-	origin: 'https://vercel.com/henrys-projects-824fc391/todo-list-wq7i/5nJGuBe3LMcGpGcnCsgTTR48AeMH'
-  }));
 
 // Get saved tasks from the database 
 app.get("/getTodoList", (req, res) => { 
@@ -68,6 +64,13 @@ app.delete("/deleteTodoList/:id", (req, res) => {
 		.catch((err) => res.json(err)); 
 }); 
 
-app.listen(5000, () => { 
-	console.log('Server running on 5000'); 
-}); 
+app.use(cors({
+	origin: 'https://todo-list-iw62.vercel.app',
+  }));
+  
+  // Your other middleware and routes
+  
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+	console.log(`Server is running on port ${PORT}`);
+  });
