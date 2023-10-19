@@ -74,7 +74,7 @@ app.delete("/deleteTodoList/:id", (req, res) => {
   // Your other middleware and routes
   
   const PORT = process.env.PORT || 5000;
-  const deploymentlink="https://todo-list-wq7i-eakokv80o-henrys-projects-824fc391.vercel.app";
+  //const deploymentlink="https://todo-list-wq7i-eakokv80o-henrys-projects-824fc391.vercel.app";
   app.listen(PORT, () => {
-	console.log(`Server is running on port ${deploymentlink}`);
+	console.log(`Server is running on port ${PORT}`);
   });
