@@ -11,7 +11,7 @@ function Todo() {
 	const [newStatus, setNewStatus] = useState(""); 
 	const [newDeadline, setNewDeadline] = useState(""); 
 	const [editedDeadline, setEditedDeadline] = useState(""); 
-
+	axios.defaults.withCredentials=true;
 	// Fetch tasks from database 
 	useEffect(() => { 
 		axios.get('https://todo-list-wq7i.vercel.app/getTodoList') 
