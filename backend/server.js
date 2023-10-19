@@ -9,7 +9,7 @@ const uri="mongodb+srv://henrycoinbase:OG0lByE8ynVcyhHH@cluster0.uwwuwqb.mongodb
 var app = express(); 
 app.use(cors()); 
 app.use(cors({
-	origin: 'https://todo-list-iw62.vercel.app/',
+	origin: 'todo-list-iw62.vercel.app',
 	methods: ["POST","GET"],
 	credentials: true
   }));
